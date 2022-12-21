@@ -1,8 +1,10 @@
+//import readline from "node:readline/promises";
 const fs = require('fs');
 
-console.log("---- PRESS SPACE FOR START ----");
 console.log(`
-            =^.^=
+    ---- PRESS SPACE FOR START ----`);
+console.log(`
+                =^.^=
                                 `); 
 
 // Crée le fichier texte de sauvegarde des données du chat :
@@ -30,6 +32,11 @@ function catName (params) {
 
         // Enregistre les informations du chat dans le fichier json :
         createAndWrite("cat_data.json", `[["cat_name", "${name}"], ["cat_health", 100], ["cat_hungry", 100], ["cat_bored", 100]]`);
+
+        console.log(`
+        Welcome ${name} !
+        `);
+
         readline.close();
 
     });
@@ -38,7 +45,9 @@ function catName (params) {
 
 function startGame () {
 
-    console.log("Welcome to Tamagotchi ! ");
+    console.log(`
+    -- Welcome to Tamagotchi --
+    `);
 
     catName();
     
