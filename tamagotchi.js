@@ -31,7 +31,21 @@ function catName (params) {
     readline.question("Enter cat name : ", name => {
 
         // Enregistre les informations du chat dans le fichier json :
-        createAndWrite("cat_data.json", `[["cat_name", "${name}"], ["cat_health", 100], ["cat_hungry", 100], ["cat_bored", 100]]`);
+        const data = {
+            cat_name: name,
+            cat_health: 100,
+            cat_hungry: 100,
+            cat_bored: 100
+        };
+
+        createAndWrite("cat_data.json", JSON.stringify(data, false, 4));
+
+        fs.readFile("cat_data.json", "utf-8", (err, data) => {
+
+            if (err) throw err;
+            console.log("Health : " + data[1]);
+
+        });
     
         console.log(`
             Welcome ${name} !
@@ -50,12 +64,5 @@ async function startGame () {
     `);
 
     catName();
-
-    // fs.readFile("cat_data.json", "utf-8", (err, data) => {
-    
-    //     if (err) throw err;
-    //     console.log(data[2][1]);
-    
-    // });
     
 } startGame();
