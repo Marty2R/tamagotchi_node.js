@@ -32,9 +32,9 @@ function catName (params) {
 
         // Enregistre les informations du chat dans le fichier json :
         createAndWrite("cat_data.json", `[["cat_name", "${name}"], ["cat_health", 100], ["cat_hungry", 100], ["cat_bored", 100]]`);
-
+    
         console.log(`
-        Welcome ${name} !
+            Welcome ${name} !
         `);
 
         readline.close();
@@ -43,12 +43,19 @@ function catName (params) {
     
 }
 
-function startGame () {
+async function startGame () {
 
     console.log(`
-    -- Welcome to Tamagotchi --
+      -- Welcome to Tamagotchi --
     `);
 
     catName();
+
+    // fs.readFile("cat_data.json", "utf-8", (err, data) => {
+    
+    //     if (err) throw err;
+    //     console.log(data[2][1]);
+    
+    // });
     
 } startGame();
