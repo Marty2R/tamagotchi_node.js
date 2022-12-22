@@ -43,7 +43,11 @@ function catName (params) {
         fs.readFile("cat_data.json", "utf-8", (err, data) => {
 
             if (err) throw err;
-            console.log("Health : " + data[1]);
+            data = JSON.parse(data);
+
+            console.log("Health cat : " + data.cat_health + " %");
+            console.log("Hungry cat : " + data.cat_hungry + " %");
+            console.log("Bored cat : " + data.cat_bored + " %");
 
         });
     
