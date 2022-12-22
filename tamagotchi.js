@@ -45,9 +45,13 @@ function catName (params) {
             if (err) throw err;
             data = JSON.parse(data);
 
+            console.log("--------------------");
             console.log("Health cat : " + data.cat_health + " %");
+            console.log("--------------------");
             console.log("Hungry cat : " + data.cat_hungry + " %");
+            console.log("--------------------");
             console.log("Bored cat : " + data.cat_bored + " %");
+            console.log("--------------------");
 
         });
     
